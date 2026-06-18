@@ -1,0 +1,8 @@
+*
+!/PKGBUILD
+!/meson.build
+!/*.c
+!/*.h
+!/*.py
+!/*.service
+!/*.sysusers

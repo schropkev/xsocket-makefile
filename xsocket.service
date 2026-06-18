@@ -1,0 +1,26 @@
+[Unit]
+Description=xsocket server
+
+[Service]
+Type=notify
+User=xsocket
+ExecStart=/usr/bin/xsocket-server
+NotifyAccess=main
+
+RuntimeDirectory=xsocket
+RuntimeDirectoryMode=0750
+RuntimeDirectoryPreserve=true
+
+NoNewPrivileges=true
+ProtectSystem=full
+ProtectHome=tmpfs
+PrivateDevices=true
+ProtectProc=noaccess
+
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+MemoryDenyWriteExecute=true
+SystemCallFilter=@basic-io @network-io @signal @io-event @process @file-system umask
+SystemCallArchitectures=native
+
+[Install]
+WantedBy=multi-user.target
